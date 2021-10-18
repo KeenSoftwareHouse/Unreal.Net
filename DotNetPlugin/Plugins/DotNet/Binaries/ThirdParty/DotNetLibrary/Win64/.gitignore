@@ -1,0 +1,7 @@
+*.dll
+*.pdb
+*.json
+!Managed/*.dll
+!Managed/*.pdb
+!RuntimeBinaries/*.dll
+!RuntimeBinaries/*.pdb

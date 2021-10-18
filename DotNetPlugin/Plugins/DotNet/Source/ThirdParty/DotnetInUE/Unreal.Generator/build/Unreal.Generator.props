@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project>
+  <PropertyGroup>
+    <UnrealProjectPath>$(MSBuildProjectDirectory)</UnrealProjectPath>
+    <UnrealNativeOutputPath Condition="$(UnrealNativeOutputPath) == ''">Native</UnrealNativeOutputPath>
+    <UnrealManagedBindingsGenerate Condition="$(UnrealManagedBindingsGenerate) == ''">false</UnrealManagedBindingsGenerate>
+    <UnrealNativeBindingsGenerate Condition="$(UnrealNativeBindingsGenerate) == ''">false</UnrealNativeBindingsGenerate>
+    <UnrealNativeBindingsMissingSymbolHandling Condition="$(UnrealNativeBindingsMissingSymbolHandling) == ''">Error</UnrealNativeBindingsMissingSymbolHandling>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Used to collect the project's path, do not actually set this propety as a user. -->
+    <CompilerVisibleProperty Include="UnrealProjectPath"/>
+    
+    <CompilerVisibleProperty Include="UnrealManagedBindingsGenerate"/>
+    <CompilerVisibleProperty Include="UnrealNativeBindingsGenerate"/>
+
+    <CompilerVisibleProperty Include="UnrealNativeOutputPath"/>
+    
+    <CompilerVisibleProperty Include="UnrealNativeBindingsMissingSymbolHandling"/>
+  </ItemGroup>
+</Project>

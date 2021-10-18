@@ -1,0 +1,10 @@
+.vs/*
+.idea/*
+Intermediate/*
+Saved/*
+DerivedDataCache/*
+Binaries/*
+Build/*
+Publish/*
+*.user
+*.sln

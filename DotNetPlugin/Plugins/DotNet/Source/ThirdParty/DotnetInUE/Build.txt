@@ -1,0 +1,3 @@
+- Open x64 Command Prompt
+- cd to DotNetUEServices
+- dotnet publish -r win-x64 -c Release --self-contained

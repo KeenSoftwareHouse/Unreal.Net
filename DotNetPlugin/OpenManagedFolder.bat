@@ -1,0 +1,1 @@
+%SystemRoot%\explorer.exe Plugins\DotNet\Source\ThirdParty\DotnetInUE

@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>enable</Nullable>
+    <RootNamespace>Unreal</RootNamespace>
+    <Configurations>Release;Debug</Configurations>
+
+    <OutDir>bin/$(Configuration)</OutDir>
+
+    <Platforms>x64</Platforms>
+    <NativeLib>Static</NativeLib>
+    <AdditionalCppCompilerFlags>/MD</AdditionalCppCompilerFlags>
+    <PublishDir>$(MSBuildThisFileDirectory)..\Artefacts</PublishDir>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UnrealNativeOutputPath>$(UE4ProjectSources)\Tests</UnrealNativeOutputPath>
+
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)\GeneratedFiles</CompilerGeneratedFilesOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup Condition="$(RuntimeConfiguration) == 'AOT'">
+    <PackageReference Include="Microsoft.DotNet.ILCompiler" Version="6.0.0-dev" />
+  </ItemGroup>
+
+  <Import Project="..\Unreal.Generator\build\Unreal.Generator.props" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unreal.Attributes\Unreal.Attributes.csproj" />
+    <ProjectReference Include="..\Unreal.Core\Unreal.Core.csproj" />
+    <ProjectReference Include="..\Unreal.Generator\Unreal.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+    <ProjectReference Include="..\Unreal.Engine\Unreal.Engine.csproj" />
+  </ItemGroup>
+</Project>

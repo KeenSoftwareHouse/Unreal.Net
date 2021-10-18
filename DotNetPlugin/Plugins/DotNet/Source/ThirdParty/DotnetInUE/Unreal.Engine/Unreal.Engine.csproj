@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <RootNamespace>Unreal</RootNamespace>
+    <Platforms>x64</Platforms>
+    <Nullable>enable</Nullable>
+
+    <OutDir>bin/$(Configuration)</OutDir>
+  </PropertyGroup>
+
+  <Import Project="..\Unreal.Generator\build\Unreal.Generator.props" />
+
+  <ItemGroup>
+    <CompilerVisibleProperty Include="UnrealNativeBindingsGenerate" />
+  </ItemGroup>
+  
+  <PropertyGroup>
+    <UnrealNativeOutputPath>$(UE4ProjectSources)\UnrealEngine</UnrealNativeOutputPath>
+
+    <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+    <CompilerGeneratedFilesOutputPath>$(BaseIntermediateOutputPath)\GeneratedFiles</CompilerGeneratedFilesOutputPath>
+
+    <!-- Skip types and members that refer to symboingls which cannot be resolved by the generator -->
+    <UnrealNativeBindingsMissingSymbolHandling>Warning</UnrealNativeBindingsMissingSymbolHandling>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="..\..\..\..\..\..\Intermediate\DotNet\Metadata\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Unreal.Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unreal.Attributes\Unreal.Attributes.csproj" />
+    <ProjectReference Include="..\Unreal.Core\Unreal.Core.csproj" />
+    <ProjectReference Include="..\Unreal.Generator\Unreal.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+</Project>

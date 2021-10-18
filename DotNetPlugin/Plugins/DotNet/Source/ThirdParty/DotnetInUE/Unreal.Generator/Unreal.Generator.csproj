@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>9</LangVersion>
+    <Nullable>enable</Nullable>
+
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <RootNamespace>Unreal</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Unreal.Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="3.8.0" PrivateAssets="all"/>
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.0.0" PrivateAssets="all"/>
+    <PackageReference Include="System.Text.Json" Version="5.0.2" GeneratePathProperty="true" PrivateAssets="all"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="AnalyzerReleases.Shipped.md"/>
+    <AdditionalFiles Include="AnalyzerReleases.Unshipped.md"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Unreal.Attributes\Unreal.Attributes.csproj"/>
+    <ProjectReference Include="..\Unreal.HeaderTool\Unreal.HeaderTool.csproj"/>
+  </ItemGroup>
+
+  <PropertyGroup>
+    <GetTargetPathDependsOn>$(GetTargetPathDependsOn);GetDependencyTargetPaths</GetTargetPathDependsOn>
+  </PropertyGroup>
+
+  <Target Name="GetDependencyTargetPaths">
+    <ItemGroup>
+      <TargetPathWithTargetPlatformMoniker Include="$(ProjectDir)$(OutputPath)Unreal.Attributes.dll" IncludeRuntimeDependency="false"/>
+      <TargetPathWithTargetPlatformMoniker Include="$(ProjectDir)$(OutputPath)Unreal.HeaderTool.dll" IncludeRuntimeDependency="false"/>
+      <TargetPathWithTargetPlatformMoniker Include="$(ProjectDir)$(OutputPath)JetBrains.Annotations.dll" IncludeRuntimeDependency="false"/>
+      <TargetPathWithTargetPlatformMoniker Include="$(PkgSystem_Text_Json)\lib\netstandard2.0\System.Text.Json.dll" IncludeRuntimeDependency="false"/>
+    </ItemGroup>
+  </Target>
+
+</Project>

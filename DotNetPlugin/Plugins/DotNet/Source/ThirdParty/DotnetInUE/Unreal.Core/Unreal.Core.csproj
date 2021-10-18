@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>Unreal</RootNamespace>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+      <_Parameter1>Unreal.Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="System.Collections.Immutable" Version="5.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\Unreal.Attributes\Unreal.Attributes.csproj" />
+  </ItemGroup>
+
+</Project>

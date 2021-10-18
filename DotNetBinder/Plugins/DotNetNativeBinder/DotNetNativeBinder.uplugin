@@ -1,0 +1,25 @@
+{
+	"FileVersion": 3,
+	"Version": 14,
+	"VersionName": "0.14",
+	"FriendlyName": ".Net Native Binder",
+	"Description": "Allows for the generation of .Net bindings for native code.",
+	"Category": "Other",
+	"CreatedBy": "Keen SWH",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"CanBeUsedWithUnrealHeaderTool" : true,
+	"Modules": [
+		{
+			"Name": "DotNetNativeBinder",
+			"Type": "Program",
+			"LoadingPhase": "PostConfigInit"
+		}
+	]
+}

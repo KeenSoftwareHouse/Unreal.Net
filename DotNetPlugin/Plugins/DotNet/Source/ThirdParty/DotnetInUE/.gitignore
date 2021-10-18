@@ -1,0 +1,7 @@
+.vs/*
+.idea/*
+Artefacts/*
+*/obj/*
+*/bin/*
+!Build/
+DotnetInUE.sln.DotSettings.user

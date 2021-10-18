@@ -1,0 +1,21 @@
+<Project>
+  <PropertyGroup>
+    <!-- General -->
+    <AssemblyVersion>0.15.2</AssemblyVersion>
+    <Authors>Keen Software House a.s.</Authors>
+
+    <!-- NuGet -->
+    <PackageVersion>$(AssemblyVersion)</PackageVersion>
+    <PackageOutputPath>$(SolutionDir)</PackageOutputPath>
+
+    <!-- TODO: I want to add some rules regarding various publishing configurations. That will have to be on some nuget package probably. Here for now -->
+    <!-- Build Configuration -->
+    <UnrealRuntimeConfiguration>JIT</UnrealRuntimeConfiguration>
+    
+    <UE4ProjectSources>..\..\..\..\..\..\Source</UE4ProjectSources>
+    
+    <DefineConstants Condition="'$(UnrealRuntimeConfiguration)' == 'JIT'">$(DefineConstants);UNREAL_PUBLISH_JIT</DefineConstants>
+    <DefineConstants Condition="'$(UnrealRuntimeConfiguration)' == 'AOT'">$(DefineConstants);UNREAL_PUBLISH_AOT</DefineConstants>
+    <!-- <DefineConstants>$(DefineConstants);UNREAL_PUBLISH_AOT</DefineConstants> -->
+  </PropertyGroup>
+</Project>
