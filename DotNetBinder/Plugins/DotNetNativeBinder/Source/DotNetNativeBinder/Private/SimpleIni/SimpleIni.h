@@ -1,6 +1,3 @@
-// Copyright (c) 2021 Keen Software House
-// Licensed under the MIT license.
-
 /** @mainpage
 
     <table>

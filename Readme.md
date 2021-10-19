@@ -61,3 +61,10 @@ Inside you'll find the managed solution which contains all managed project files
 ## Known Issues
 * Incremental builds do not re-run source generators if only the generator project has changed, this can lead to stale bindings and in that case a full rebuild is necessary.
 * Sometimes UHT produces incomplete reflection information with no bindings for some types. If you encounter that rebuild the native project and then the managed solution, that's usually sufficient.
+
+# Acknowledgements
+This implementation uses the [simpleini](https://github.com/brofield/simpleini) library by Brodie Thiesfield, which in turn uses the ConvertUTF library provided by Unicode, Inc.
+
+We also embed binaries from the [.Net Core runtime and BCL](https://github.com/dotnet/runtime). Those are provided for convenience and can be easily obtained via compiling the runtime from source.
+
+We thank those parties for their contributions to free and open source software.

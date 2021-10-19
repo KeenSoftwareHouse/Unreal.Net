@@ -1,6 +1,3 @@
-// Copyright (c) 2021 Keen Software House
-// Licensed under the MIT license.
-
 /*
  * Copyright 2001-2004 Unicode, Inc.
  * 
